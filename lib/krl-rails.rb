@@ -3,13 +3,13 @@ require 'rails'
 require 'krl'
 require 'krl-rails/register_engine'
 
-module Krl
+module KRL
   module Rails
     class Railtie < ::Rails::Railtie
       config.app_generators.template_engine :krl
 
       initializer 'krl_rails.configure_template_digestor' do |app|
-        Krl::Rails::RegisterEngine.register_engine(app, config)
+        KRL::Rails::RegisterEngine.register_engine(app, config)
 
         ActiveSupport.on_load(:action_view) do
           ActiveSupport.on_load(:after_initialize) do

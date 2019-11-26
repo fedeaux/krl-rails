@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'krl-rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'slim-rails'
+  spec.name          = 'krl-rails'
   spec.version       = KRL::Rails::VERSION
   spec.authors       = ["Pedro Bernardes"]
   spec.email         = ["phec06@gmail.com"]
