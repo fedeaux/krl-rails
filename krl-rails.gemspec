@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'slim-rails/version'
+require 'krl-rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'slim-rails'
-  spec.version       = Slim::Rails::VERSION
-  spec.authors       = ["Leonardo Almeida"]
-  spec.email         = ["lalmeida08@gmail.com"]
+  spec.version       = KRL::Rails::VERSION
+  spec.authors       = ["Pedro Bernardes"]
+  spec.email         = ["phec06@gmail.com"]
 
-  spec.summary       = 'Slim templates generator for Rails 3+'
-  spec.description   = 'Provides the generator settings required for Rails 3+ to use Slim'
-  spec.homepage      = 'https://github.com/slim-template/slim-rails'
+  spec.summary       = 'Krl templates generator for Rails 3+'
+  spec.description   = 'Provides the generator settings required for Rails 3+ to use KRL'
+  spec.homepage      = 'https://github.com/fedeaux/krl-rails'
   spec.license       = 'MIT'
 
   spec.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'actionpack', ['>= 3.1']
   spec.add_runtime_dependency 'railties',   ['>= 3.1']
-  spec.add_runtime_dependency 'slim',       ['>= 3.0', '< 5.0']
 
   spec.add_development_dependency 'sprockets-rails'
   spec.add_development_dependency 'rocco'

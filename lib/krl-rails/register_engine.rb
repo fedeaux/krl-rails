@@ -1,9 +1,9 @@
-module Slim
+module Krl
   module Rails
     module RegisterEngine
       class Transformer
         def self.call(input)
-          Slim::Template.new(input[:name]) { input[:data] }.render(nil)
+          Krl::Template.new(input[:name]) { input[:data] }.render(nil)
         end
       end
 
@@ -22,7 +22,7 @@ module Slim
           return unless app.assets
           return unless app.assets.respond_to?(:register_engine)
 
-          app.assets.register_engine('.slim', Slim::Template)
+          app.assets.register_engine('.krl', Krl::Template)
         end
 
         def _register_engine(config)
@@ -30,10 +30,10 @@ module Slim
 
           config.assets.configure do |env|
             if env.respond_to?(:register_transformer) && Sprockets::VERSION.to_i > 3
-              env.register_mime_type 'text/slim', extensions: ['.slim', '.slim.html']#, charset: :html
-              env.register_transformer 'text/slim', 'text/html', RegisterEngine::Transformer
+              env.register_mime_type 'text/krl', extensions: ['.krl', '.krl.html']#, charset: :html
+              env.register_transformer 'text/krl', 'text/html', RegisterEngine::Transformer
             elsif env.respond_to?(:register_engine)
-              args = ['.slim', Slim::Template]
+              args = ['.krl', Krl::Template]
               args << { silence_deprecation: true } if Sprockets::VERSION.start_with?('3')
               env.register_engine(*args)
             end
