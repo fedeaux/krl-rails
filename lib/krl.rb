@@ -1,6 +1,6 @@
 module KRL
   class Template
-    attr_reader :fields
+    attr_reader :fields, :html
 
     def initialize(input)
       @contents = Nokogiri::HTML.fragment input.source
